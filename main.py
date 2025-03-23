@@ -1,4 +1,4 @@
-# Made By Rv
+# Made By JOYROCK10
 # Edit anything at your own risk
 
 from pyrogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
@@ -32,8 +32,8 @@ logging.basicConfig(
 _LOG = logging.getLogger(__name__)
 
 
-rvbot = Client(
-    "rvpaidbot",
+joyrock10bot= Client(
+    "joyrock10m3u8bot",
     bot_token = Config.BOT_TOKEN,
     api_id = Config.API_ID,
     api_hash = Config.API_HASH,
@@ -66,14 +66,14 @@ TIME_VALUES_STR = {"0:30": "30Min",
 
 AUTH_USERS = Config.AUTH_USERS
 
-@rvbot.on_message(filters.command(["log", "logs"]) & filters.user(Config.OWNER_ID))
+@joyrock10bot.on_message(filters.command(["log", "logs"]) & filters.user(Config.OWNER_ID))
 async def get_log_wm(bot, message) -> None:
     try:
         await message.reply_document("log.txt")
     except Exception as e:
         _LOG.info(e)
 
-@rvbot.on_message(filters.command(["help"]) & filters.user(Config.AUTH_USERS))
+@joyrock10.on_message(filters.command(["help"]) & filters.user(Config.AUTH_USERS))
 async def get_help(bot, message) -> None:
     text = """**To record a live link, send your link in the following format:**
 
@@ -102,22 +102,22 @@ There will be a time gap to remove time you Have To Buy Subscription /plan For d
 
     await message.reply_text(text, reply_markup=inline_keyboard)
 
-@rvbot.on_message(filters.command(["start"]) & filters.user(Config.AUTH_USERS))
+@joyrock10bot.on_message(filters.command(["start"]) & filters.user(Config.AUTH_USERS))
 async def get_start(bot, message) -> None:
     text = "Hey there! I am a live video recorder bot. I can record live videos using their URL.\n\nNote: Don't report to the developer if the video duration is incorrect. For More Details /help .\n\nMade With Love By @rv2006rv"
     
     inline_keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("🚨Updates🚨", url="https://t.me/RoyalToonsOfficial"),
-                InlineKeyboardButton("👷Support👷", url="https://t.me/rv2006rv")
+                InlineKeyboardButton("🚨Updates🚨", url="https://t.me/CARTOONIND"),
+                InlineKeyboardButton("👷Support👷", url="https://t.me/JOYROCK10")
             ]
         ]
     )
 
     await message.reply_text(text, reply_markup=inline_keyboard)
 
-@rvbot.on_message(filters.command(["plan"]) & filters.user(Config.AUTH_USERS))
+@joyrock10bot.on_message(filters.command(["plan"]) & filters.user(Config.AUTH_USERS))
 async def get_plan(bot, message) -> None:
     text = """**Free Plan User**
 
@@ -127,18 +127,18 @@ Upgrade your plan to get the following benefit:
 - No time gap in recorded videos 
 - Recording time will be more than 50 minutes 
 
-🪙 1 Month Plan 🪙 :- Rs.40
+🪙 1 Month Plan 🪙 :- Rs.20
  
- 💫 3 Months plan💫 :- Rs.140
+ 💫 3 Months plan💫 :- Rs.80
  
- 💎 6 Months Plan 💎 :- Rs.270
+ 💎 6 Months Plan 💎 :- Rs.150
 
 To upgrade your plan, please contact the bot owner."""
 
     inline_keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Contact Owner", url="https://t.me/rv2006rv")
+                InlineKeyboardButton("Contact Owner", url="https://t.me/JOYROCK10")
             ]
         ]
     )
@@ -197,7 +197,7 @@ link timestamp(hh:mm:ss)"""
         # Update the user's last triggered time
         user_cooldowns[user_id] = time.time()
         
-@rvbot.on_callback_query(filters.regex("time.*?"))
+@joyrock10bot.on_callback_query(filters.regex("time.*?"))
 async def cb_handler_main(bot: Client, cb: CallbackQuery):
     cb_data = cb.data.split("_",1)[1]
     msg = cb.message
@@ -280,7 +280,7 @@ async def uploader_main(usr_link: str, msg: Message, cb_data: str, message):
         if "Connection timed out" in error_recording_video:
             await msg.reply_text(f"Connection timed out with {usr_link}")
         else:
-            await msg.reply_text("File not found, try again ...")
+            await msg.reply_text("File not found, try again please ...")
 
     try:
         try:
@@ -409,12 +409,12 @@ async def StartBot():
     # create download directory, if not exist
     if not os.path.isdir(Config.DOWNLOAD_DIRECTORY):
         os.makedirs(Config.DOWNLOAD_DIRECTORY)
-    print("----@rv2006rv----")
-    await rvbot.start()
+    print("----@JOYROCK10----")
+    await joyrock10bot.start()
     print("------Bot Started------")
     await idle()
     print("------Bot Stopped------")
-    await rvbot.stop()
+    await joyrock10bot.stop()
     print("----------BYE!---------")
 
 if __name__ == "__main__" :

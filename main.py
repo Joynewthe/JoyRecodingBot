@@ -94,8 +94,8 @@ There will be a time gap to remove time you Have To Buy Subscription /plan For d
     inline_keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("🚨Updates🚨", url="https://t.me/RoyalToonsOfficial"),
-                InlineKeyboardButton("👷Support👷", url="https://t.me/rv2006rv")
+                InlineKeyboardButton("🚨Updates🚨", url="https://t.me/CARTOONIND"),
+                InlineKeyboardButton("👷Support👷", url="https://t.me/JOYROCK10")
             ]
         ]
     )
@@ -151,7 +151,7 @@ processing_lock = asyncio.Lock()
 # Add a dictionary to keep track of user cooldowns
 user_cooldowns = {}
     
-@rvbot.on_message(filters.regex(pattern=".*http.*") & filters.user(Config.AUTH_USERS))
+@joyrock10bot.on_message(filters.regex(pattern=".*http.*") & filters.user(Config.AUTH_USERS))
 async def main_func(bot: Client, message: Message) -> None:
     user_id = message.from_user.id
     
